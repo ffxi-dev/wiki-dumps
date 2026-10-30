@@ -24,7 +24,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 BASE = "https://wiki.ffo.jp"
-UA = "ffxi-wiki-dumps/1.0 (+https://github.com/sruon/ffxi-wiki-dumps)"
+UA = "ffxi-wiki-dumps/1.0 (+https://github.com/ffxi-dev/ffxi-wiki-dumps)"
 PAGE_RE = re.compile(r"/html/(\d+)\.html")
 
 # Chrome, navigation and edit affordances - none of it is article content.
