@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: corpus
@@ -24,10 +24,10 @@ jobs:
       matrix:
         include:
           # BG Wiki sits behind a Cloudflare challenge that blocks datacenter
-          # IPs, so this one has to run from a self-hosted runner on a
-          # residential connection. The other two are fine on GitHub's.
+          # IPs, so this one runs on the ffxi-dev runner on lsb, a residential
+          # connection. The other two are fine on GitHub's.
           - source: bg
-            runner: [self-hosted, bg-scrape]
+            runner: [self-hosted, lsb]
             cmd: python scrape_mediawiki.py bg --out-dir dist
           - source: ffxiclopedia
             runner: ubuntu-latest
@@ -53,6 +53,8 @@ jobs:
   release:
     needs: scrape
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 

@@ -18,7 +18,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-UA = "ffxi-wiki-dumps/1.0 (+https://github.com/ffxi-dev/ffxi-wiki-dumps)"
+UA = "ffxi-wiki-dumps/1.0 (+https://github.com/ffxi-dev/wiki-dumps)"
 
 WIKIS = {
     "bg": ("https://www.bg-wiki.com", "bg-wiki"),
