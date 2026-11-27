@@ -85,10 +85,10 @@ in parallel, gzips them and cuts a dated release. Each release includes a
 `manifest.json` with line counts, sizes and SHA-256 per file. Also runnable from
 the Actions tab.
 
-BG Wiki blocks datacenter IPs with a Cloudflare challenge, so that job runs on the
-ffxi-dev organization's self-hosted runner labelled `lsb`, on a home connection the
-challenge lets through. Only the schedule and the Actions tab start this workflow,
-and the organization makes code from forks wait for the owner's approval. Check any
+BG Wiki blocks datacenter IPs with a Cloudflare challenge, so that job runs on
+`lsb-scrape`, an ffxi-dev runner on a home connection the challenge lets through.
+It sits in a runner group that only this workflow, on main, can use, so no pull
+request reaches it. Only the schedule and the Actions tab start this workflow. Check any
 candidate box with:
 
 ```bash

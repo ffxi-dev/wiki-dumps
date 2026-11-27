@@ -24,10 +24,11 @@ jobs:
       matrix:
         include:
           # BG Wiki sits behind a Cloudflare challenge that blocks datacenter
-          # IPs, so this one runs on the ffxi-dev runner on lsb, a residential
-          # connection. The other two are fine on GitHub's.
+          # IPs, so this one runs on lsb-scrape, a runner on lsb, a residential
+          # connection, in a group only this workflow on main can use (vault's
+          # infra/wiki-dumps.tf). The other two are fine on GitHub's.
           - source: bg
-            runner: [self-hosted, lsb]
+            runner: lsb-scrape
             cmd: python scrape_mediawiki.py bg --out-dir dist
           - source: ffxiclopedia
             runner: ubuntu-latest
